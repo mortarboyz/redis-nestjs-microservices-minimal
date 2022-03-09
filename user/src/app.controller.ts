@@ -15,7 +15,7 @@ export class AppController {
   async redisTest(data: any) {
     return {
       status: true,
-      message: 'Hello Microservice!'
+      message: 'Hello Microservices!',
     };
   }
 }
