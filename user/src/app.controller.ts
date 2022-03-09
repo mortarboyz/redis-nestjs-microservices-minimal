@@ -1,4 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
+import { MessagePattern } from '@nestjs/microservices';
 import { AppService } from './app.service';
 
 @Controller()
@@ -8,5 +9,13 @@ export class AppController {
   @Get()
   getHello(): string {
     return this.appService.getHello();
+  }
+
+  @MessagePattern('redis-test')
+  async redisTest(data: any) {
+    return {
+      status: true,
+      message: 'Hello Microservice!'
+    };
   }
 }
